@@ -1,233 +1,469 @@
-# Task Breaker Skill
+# Task Breaker Plugin
 
-A WorkBuddy skill for systematically breaking down complex tasks into manageable subtasks and coordinating their execution.
+智能任务分解插件，能够将复杂任务拆解为可执行的子任务，支持并行执行、依赖管理和结果合成。
 
-## What This Skill Does
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/WorkBuddy/task-breaker-plugin)
+[![Category](https://img.shields.io/badge/category-productivity-green.svg)](https://github.com/WorkBuddy/plugins)
 
-The Task Breaker skill helps you:
+## 📖 目录
 
-- Decompose complex tasks into smaller, executable subtasks
-- Identify dependencies between subtasks
-- Execute subtasks in parallel when possible
-- Track progress and handle failures gracefully
-- Synthesize results from multiple subtasks into a coherent final output
+- [简介](#简介)
+- [核心功能](#核心功能)
+- [适用场景](#适用场景)
+- [快速开始](#快速开始)
+- [插件结构](#插件结构)
+- [使用指南](#使用指南)
+- [最佳实践](#最佳实践)
+- [示例](#示例)
+- [贡献](#贡献)
+- [许可证](#许可证)
 
-## When to Use
+---
 
-Use this skill when you encounter:
+## 简介
 
-- Large, complex projects that require multiple steps
-- Tasks with clear independent components that can be parallelized
-- Multi-step workflows with dependencies
-- Projects that could benefit from different perspectives or approaches
-- Any request involving "拆分任务", "分解任务", "子任务", or task decomposition
+Task Breaker 插件提供了一套完整的任务管理框架，能够智能分析任务复杂度、创建优化的子任务结构、协调并行执行、管理依赖关系，并最终合成高质量的结果。
 
-**Trigger Keywords:**
-- "拆分任务" (split task)
-- "分解任务" (break down task)
-- "子任务" (subtask)
-- "任务拆解" (task decomposition)
-- "break down task"
-- "split task"
-- "subtask"
-- "task decomposition"
+### 核心价值
 
-## Skill Structure
+- **智能分析**：自动识别任务类型（深度优先/广度优先/直接型）并采用最佳分解策略
+- **高效执行**：最大化并行化，显著减少总执行时间
+- **系统管理**：完整追踪子任务状态，管理依赖关系
+- **质量保证**：结构化的合成流程，确保最终结果质量
+
+---
+
+## 核心功能
+
+### 1. 任务复杂度分析
+分析任务类型和复杂度，确定最佳分解策略：
+- 深度优先任务：从多个角度分析同一主题
+- 广度优先任务：分解为独立的子问题
+- 直接型任务：按顺序执行的处理步骤
+
+### 2. 智能子任务创建
+将复杂任务拆解为独立、可执行的子任务：
+- 明确的目标和预期输出
+- 优先级和依赖关系
+- 成功标准评估
+
+### 3. 并行执行支持
+识别可并行的子任务，使用多个代理同时执行：
+- 自动识别独立任务
+- 最大化并行效率
+- 默认 3 个并行代理，最多支持 20 个
+
+### 4. 依赖管理
+跟踪子任务依赖关系：
+- 确保先决条件完成
+- 智能调度执行顺序
+- 处理依赖失败情况
+
+### 5. 结果合成
+收集所有子任务输出并合成最终交付物：
+- 质量验证
+- 冲突解决
+- 结果整合
+
+### 6. 进度跟踪
+实时监控子任务状态：
+- 待处理（Pending）
+- 进行中（In Progress）
+- 已完成（Completed）
+- 阻塞（Blocked）
+
+---
+
+## 适用场景
+
+### ✅ 应该使用此插件的情况
+
+- **大型项目**：需要多个步骤、多个组件的复杂项目
+- **多步骤工作流**：有明确依赖关系的流程
+- **并行化任务**：可以同时执行的独立任务
+- **多角度分析**：需要从不同视角分析同一问题
+- **跨领域项目**：需要多种专业知识的任务
+
+### ❌ 不应该使用此插件的情况
+
+- 简单任务（可在 5 分钟内完成）
+- 本质上顺序执行的任务
+- 非常直接的单一操作
+- 用户只需要快速答案或事实
+
+### 典型应用场景
+
+| 场景类型 | 示例 | 子任务数 | 并行度 |
+|---------|------|---------|--------|
+| 市场研究 | 研究 5 个国家的市场情况 | 6 (5 研究 + 1 合成) | 高 |
+| 软件开发 | 构建全栈 Web 应用 | 8 | 中 |
+| 数据分析 | 分析大型数据集 | 7 | 高 |
+| 内容创作 | 创建完整文档 | 5 | 中 |
+
+---
+
+## 快速开始
+
+### 基本使用
+
+直接描述您的复杂任务，插件会自动处理：
+
+```
+用户："研究5个欧洲国家的可再生能源采用情况，生成对比报告"
+
+插件自动：
+1. 分析任务类型（广度优先）
+2. 创建 5 个并行研究子任务
+3. 同时执行所有研究任务
+4. 合成结果为对比报告
+```
+
+### 触发关键词
+
+插件会在以下关键词触发时自动激活：
+
+- **中文**："拆分任务"、"分解任务"、"子任务"、"任务拆解"
+- **英文**："break down task"、"split task"、"subtask"、"task decomposition"
+
+---
+
+## 插件结构
 
 ```
 task-breaker/
-├── SKILL.md                          # Main skill documentation (required)
-├── README.md                         # This file
+├── plugin.json                          # 插件配置文件
+├── README.md                            # 本文件
+├── skills/
+│   └── task-breaker/
+│       └── SKILL.md                     # Skill 主文档
 ├── examples/
-│   └── task-breaker-examples.md     # Real-world examples with detailed breakdowns
+│   └── task-breaker-examples.md         # 详细示例
 └── templates/
-    └── task-breakdown-template.md    # Template for creating custom task breakdowns
+    └── task-breakdown-template.md        # 任务分解模板
 ```
 
-## Quick Start
+### 文件说明
 
-### Basic Usage
+#### plugin.json
+插件元数据，包括：
+- 基本信息（名称、版本、描述）
+- 功能能力列表
+- Skill 配置
+- 依赖关系
+- 使用示例
 
-When you encounter a complex task, simply describe it naturally. The Task Breaker skill will automatically:
+#### SKILL.md
+完整的技术文档，包括：
+- 工作流程（5 个步骤）
+- 分解策略
+- 最佳实践
+- 工具使用指南
+- 质量保证标准
 
-1. Analyze the task type and complexity
-2. Create an appropriate decomposition strategy
-3. Break down the task into subtasks
-4. Execute subtasks (with parallelization where possible)
-5. Synthesize results into a final deliverable
+#### examples/task-breaker-examples.md
+4 个完整示例：
+1. 市场研究任务（6 个子任务）
+2. 软件开发任务（8 个子任务）
+3. 数据分析任务（7 个子任务）
+4. 内容创作任务（5 个子任务）
 
-### Example Request
+#### templates/task-breakdown-template.md
+可复用的任务分解模板，包括：
+- 任务分析部分
+- 子任务定义格式
+- 执行计划结构
+- 进度跟踪表
+- 风险评估
+- 合成计划
+
+---
+
+## 使用指南
+
+### 工作流程
 
 ```
-Research the current state of renewable energy adoption in 5 European countries and produce a comparative report.
+┌─────────────────┐
+│  1. 分析原任务  │ → 理解目标、识别类型、评估复杂度
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  2. 分解策略   │ → 选择分解方法（深度/广度/直接）
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  3. 创建子任务  │ → 定义子任务、依赖、优先级、输出
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  4. 执行子任务  │ → 并行执行、管理依赖、跟踪进度
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│  5. 合成结果   │ → 验证质量、解决冲突、整合输出
+└─────────────────┘
 ```
 
-The skill will automatically:
-- Create 5 parallel research subtasks (one per country)
-- Execute them simultaneously
-- Synthesize findings into a comparative report
+### 分解策略选择
 
-## Key Features
+#### 深度优先策略
+**适用场景**：从多个角度分析同一问题
 
-### Intelligent Decomposition
+**示例**：分析 AI 对医疗的影响
+- 子任务 1：监管角度
+- 子任务 2：临床角度
+- 子任务 3：经济角度
+- 子任务 4：技术角度
+- 子任务 5：合成报告
 
-The skill recognizes three types of tasks:
+#### 广度优先策略
+**适用场景**：分解为独立的子问题
 
-1. **Depth-First**: Same topic from multiple perspectives (e.g., analyzing AI impact from regulatory, clinical, economic angles)
-2. **Breadth-First**: Distinct independent sub-questions (e.g., comparing 5 different countries)
-3. **Straightforward**: Sequential steps with clear dependencies (e.g., processing a file)
+**示例**：比较 5 个国家的税收系统
+- 子任务 1：研究国家 A
+- 子任务 2：研究国家 B
+- 子任务 3：研究国家 C
+- ...
+- 子任务 6：合成对比报告
 
-### Parallel Execution
+#### 直接型策略
+**适用场景**：有明确依赖关系的顺序步骤
 
-Identifies independent subtasks and executes them simultaneously using multiple agents, dramatically reducing total execution time.
+**示例**：处理文件
+- 子任务 1：读取文件
+- 子任务 2：处理内容
+- 子任务 3：保存输出
 
-### Dependency Management
+### 执行模式
 
-Respects dependencies between subtasks, ensuring prerequisite work is complete before dependent tasks begin.
-
-### Progress Tracking
-
-Monitors the status of each subtask (Pending, In Progress, Completed, Blocked) and provides real-time updates.
-
-### Result Synthesis
-
-Combines outputs from all subtasks into a coherent final deliverable, handling inconsistencies and cross-validating results.
-
-## Documentation
-
-### SKILL.md
-
-The complete skill documentation including:
-- Detailed workflow instructions
-- Best practices and common patterns
-- Quality assurance guidelines
-- Error handling strategies
-- Advanced techniques
-
-### Examples Directory (`examples/task-breaker-examples.md`)
-
-Four complete real-world examples:
-
-1. **Market Research Task**: Researching EV market with 6 subtasks (5 parallel + synthesis)
-2. **Software Development Task**: Building a full-stack app with 8 subtasks and complex dependencies
-3. **Data Analysis Task**: Analyzing sales data with 6 subtasks (4 parallel analysis + synthesis)
-4. **Content Creation Task**: Creating onboarding guide with 6 subtasks (4 parallel + synthesis)
-
-Each example includes:
-- Original task description
-- Complete subtask breakdown
-- Execution plan
-- Time estimates
-
-### Templates Directory (`templates/task-breakdown-template.md`)
-
-A ready-to-use template for creating custom task breakdowns including:
-- Task analysis sections
-- Subtask definition format
-- Execution plan structure
-- Progress tracking table
-- Risk assessment
-- Success criteria
-- Synthesis plan
-
-## Best Practices
-
-### Do's
-
-✅ Use for tasks requiring more than 30 minutes of focused work
-✅ Create 3-7 subtasks for most complex tasks
-✅ Maximize parallelization by minimizing dependencies
-✅ Define clear success criteria for each subtask
-✅ Monitor progress and adjust as needed
-
-### Don'ts
-
-❌ Over-decompose simple tasks (token efficiency matters)
-❌ Create subtasks with overlapping scope
-❌ Ignore dependencies between subtasks
-❌ Proceed to synthesis before prerequisites are complete
-❌ Use for tasks that complete in under 5 minutes
-
-## Common Patterns
-
-### Parallel Execution Pattern
+#### 并行执行模式
 ```
-┌─ Task 1 ─┐
-├─ Task 2 ─┤ → Synthesis
-└─ Task 3 ─┘
+┌─ 任务 1 ─┐
+├─ 任务 2 ─┤ → 合成
+└─ 任务 3 ─┘
 ```
-Use when: Subtasks are independent and can benefit from parallelization
 
-### Sequential Chain Pattern
+**优势**：最大化并行化，显著减少总时间
+
+**适用**：独立、无依赖的任务
+
+#### 顺序链模式
 ```
-Task 1 → Task 2 → Task 3 → Task 4
+任务 1 → 任务 2 → 任务 3 → 任务 4
 ```
-Use when: Order matters and each step builds on previous results
 
-### Fan-In Pattern
+**优势**：清晰的数据流，便于追踪
+
+**适用**：有严格依赖关系的任务
+
+#### 混合模式
+结合并行和顺序执行，适应复杂任务需求
+
+---
+
+## 最佳实践
+
+### ✅ 推荐做法
+
+1. **合理控制子任务数量**
+   - 标准复杂度：3-7 个子任务
+   - 高复杂度：最多 20 个子任务
+   - 避免过度分解导致管理开销
+
+2. **最大化并行化**
+   - 识别独立任务，同时执行
+   - 减少依赖关系
+   - 使用默认 3 个并行代理
+
+3. **明确成功标准**
+   - 每个子任务都要有清晰的输出定义
+   - 设置可衡量的成功标准
+   - 在执行前验证目标
+
+4. **持续跟踪进度**
+   - 实时更新子任务状态
+   - 及时处理阻塞情况
+   - 必要时调整范围
+
+5. **质量优先**
+   - 在合成前验证每个子任务输出
+   - 跨验证关键结果
+   - 解决不一致问题
+
+### ❌ 避免做法
+
+1. **过度分解简单任务**
+   - 不必要的子任务增加开销
+   - 降低 token 效率
+   - 可能导致混淆
+
+2. **创建重叠范围的子任务**
+   - 导致重复工作
+   - 浪费资源
+   - 增加管理复杂度
+
+3. **忽略依赖关系**
+   - 可能导致执行失败
+   - 产生不一致的结果
+   - 增加重试成本
+
+4. **过早合成**
+   - 在所有先决条件未完成前开始合成
+   - 可能导致不完整的结果
+   - 需要返工
+
+5. **缺乏进度跟踪**
+   - 难以掌握项目状态
+   - 及时发现问题的能力降低
+   - 影响项目透明度
+
+---
+
+## 示例
+
+### 示例 1：市场研究
+
+**用户请求**：
 ```
-Task 1 ─┐
-Task 2 ─┼─→ Synthesis
-Task 3 ─┘
+研究5个欧洲国家的可再生能源采用情况，生成对比报告
 ```
-Use when: Gathering information from different perspectives
 
-### Fan-Out Pattern
+**自动分解**：
+- 子任务 1：德国研究（并行）
+- 子任务 2：丹麦研究（并行）
+- 子任务 3：荷兰研究（并行）
+- 子任务 4：瑞典研究（并行）
+- 子任务 5：挪威研究（并行）
+- 子任务 6：合成对比报告（依赖 1-5）
+
+**执行时间**：25-35 分钟（对比顺序执行需 80-100 分钟）
+
+### 示例 2：软件开发
+
+**用户请求**：
 ```
-Task → Subtask 1
-     → Subtask 2
-     → Subtask 3
+构建一个全栈任务管理Web应用
 ```
-Use when: Processing multiple items of the same type
 
-## Output Format
+**自动分解**：
+- 子任务 1：数据库设计（基础）
+- 子任务 2：后端 API 开发（依赖 1）
+- 子任务 3：前端 UI 开发（与 2 并行）
+- 子任务 4：前后端集成（依赖 2,3）
+- 子任务 5：认证系统（与 4 并行）
+- 子任务 6：实时通知（依赖 2,5）
+- 子任务 7：测试套件（依赖 4,5,6）
+- 子任务 8：文档和部署（依赖 7）
 
-When breaking down a task, the skill produces:
+**执行时间**：30-45 小时
 
-1. **Task Analysis**: Understanding of objectives and complexity
-2. **Decomposition Strategy**: Explanation of approach
-3. **Subtask List**: Detailed breakdown of each subtask
-4. **Execution Plan**: Order and timing of execution
-5. **Progress Tracking**: Real-time status updates
-6. **Final Deliverable**: Synthesized result from all subtasks
+### 示例 3：数据分析
 
-## Limitations
+**用户请求**：
+```
+分析这个大型销售数据集，生成洞察报告
+```
 
-- More subtasks = more coordination overhead
-- Highly dependent tasks cannot be parallelized
-- Decomposition has overhead - not always faster for simple tasks
-- Token efficiency should be considered
+**自动分解**：
+- 子任务 1：数据清洗和预处理（基础）
+- 子任务 2：数据描述性统计（依赖 1）
+- 子任务 3：销售趋势分析（依赖 2，并行）
+- 子任务 4：客户细分分析（依赖 2，并行）
+- 子任务 5：产品分析（依赖 2，并行）
+- 子任务 6：地理分析（依赖 2，并行）
+- 子task 7：洞察合成和仪表板（依赖 3,4,5,6）
 
-## Integration with WorkBuddy
+**执行时间**：18-27 小时
 
-This skill works seamlessly with other WorkBuddy capabilities:
+更多详细示例请参考：`examples/task-breaker-examples.md`
 
-- **Task Tool**: Creates subagents for parallel execution
-- **Search Tools**: Uses search_file, search_content for research
-- **File Tools**: Uses read_file for accessing resources
-- **Web Tools**: Uses web_search for external information
-- **Other Skills**: Can combine with domain-specific skills
+---
 
-## Contributing
+## 技术细节
 
-To improve this skill:
+### 插件配置
 
-1. Add more examples to the `examples/` directory
-2. Refine the template based on real-world usage
-3. Update documentation with lessons learned
-4. Share successful decomposition strategies
+```json
+{
+  "name": "task-breaker",
+  "version": "1.0.0",
+  "category": "productivity",
+  "settings": {
+    "maxSubtasks": 20,
+    "defaultParallelAgents": 3,
+    "enableProgressTracking": true,
+    "autoSynthesis": true
+  }
+}
+```
 
-## License
+### Skill 配置
 
-This skill is part of WorkBuddy and follows the same licensing terms.
+- **触发词**：拆分任务、分解任务、子任务、任务拆解等
+- **自动激活**：检测到相关关键词时自动调用
+- **独立工作**：不依赖外部集成
 
-## Support
+### 输出格式
 
-For issues or questions:
-- Refer to SKILL.md for detailed documentation
-- Check examples directory for real-world implementations
-- Use the template as a starting point for custom breakdowns
+插件会生成结构化的任务分解报告，包括：
 
-## Version History
+1. **任务分析**：目标和复杂度评估
+2. **分解策略**：方法选择和理由
+3. **子任务列表**：详细的子任务定义
+4. **执行计划**：执行顺序和时间估计
+5. **进度跟踪**：实时状态更新
+6. **最终交付物**：合成的结果
 
-- **v1.0.0** - Initial release with core functionality, examples, and templates
+---
+
+## 贡献
+
+欢迎贡献！要改进此插件：
+
+1. 添加更多示例到 `examples/` 目录
+2. 根据实际使用优化模板
+3. 更新文档和最佳实践
+4. 分享成功的分解策略
+
+### 贡献流程
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
+
+---
+
+## 许可证
+
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
+
+---
+
+## 联系方式
+
+**插件主页**：[GitHub Repository](https://github.com/WorkBuddy/task-breaker-plugin)
+
+**问题反馈**：[GitHub Issues](https://github.com/WorkBuddy/task-breaker-plugin/issues)
+
+**文档**：查看 `/skills/task-breaker/SKILL.md` 获取详细技术文档
+
+---
+
+## 致谢
+
+感谢所有为改进 Task Breaker 插件做出贡献的开发者和用户！
+
+---
+
+**版本**：1.0.0
+
+**最后更新**：2025 年
+
+**维护者**：WorkBuddy Team

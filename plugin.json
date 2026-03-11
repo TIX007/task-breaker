@@ -1,0 +1,116 @@
+{
+  "name": "task-breaker",
+  "displayName": "任务分解助手",
+  "version": "1.0.0",
+  "description": "智能任务分解工具，能够将复杂任务拆解为可执行的子任务，支持并行执行、依赖管理和结果合成。适用于大型项目、多步骤工作流和需要多角度分析的场景。",
+  "author": "WorkBuddy Team",
+  "category": "productivity",
+  "keywords": [
+    "任务拆分",
+    "任务分解",
+    "子任务",
+    "并行执行",
+    "项目管理",
+    "工作流",
+    "task breakdown",
+    "subtask",
+    "task decomposition"
+  ],
+  "icon": "🧩",
+  "capabilities": [
+    {
+      "name": "analyze_task_complexity",
+      "displayName": "任务复杂度分析",
+      "description": "分析任务类型（深度优先/广度优先/直接型）和复杂度，确定最佳的分解策略",
+      "category": "task-analysis"
+    },
+    {
+      "name": "create_subtasks",
+      "displayName": "创建子任务",
+      "description": "将复杂任务拆解为独立、可执行的子任务，明确依赖关系和优先级",
+      "category": "task-decomposition"
+    },
+    {
+      "name": "parallel_execution",
+      "displayName": "并行执行",
+      "description": "识别可并行的子任务，使用多个代理同时执行以提高效率",
+      "category": "task-execution"
+    },
+    {
+      "name": "dependency_management",
+      "displayName": "依赖管理",
+      "description": "跟踪子任务依赖关系，确保先决条件完成后再执行依赖任务",
+      "category": "task-coordination"
+    },
+    {
+      "name": "result_synthesis",
+      "displayName": "结果合成",
+      "description": "收集所有子任务输出，验证质量，解决冲突，合成为最终交付物",
+      "category": "task-integration"
+    },
+    {
+      "name": "progress_tracking",
+      "displayName": "进度跟踪",
+      "description": "实时监控子任务状态（待处理/进行中/已完成/阻塞），提供进度更新",
+      "category": "task-monitoring"
+    }
+  ],
+  "skills": [
+    {
+      "name": "task-breaker",
+      "path": "skills/task-breaker/SKILL.md",
+      "displayName": "任务分解",
+      "description": "系统化地将复杂任务分解为可管理的子任务并协调执行"
+    }
+  ],
+  "dependencies": {
+    "python": null,
+    "packages": []
+  },
+  "integrations": [],
+  "settings": {
+    "maxSubtasks": 20,
+    "defaultParallelAgents": 3,
+    "enableProgressTracking": true,
+    "autoSynthesis": true
+  },
+  "examples": [
+    {
+      "title": "市场研究任务",
+      "description": "研究 5 个欧洲国家的可再生能源采用情况并生成对比报告",
+      "userInput": "研究5个欧洲国家（德国、丹麦、荷兰、瑞典、挪威）的可再生能源采用情况，生成对比分析报告"
+    },
+    {
+      "title": "软件开发任务",
+      "description": "构建全栈任务管理 Web 应用",
+      "userInput": "帮我拆分构建一个全栈任务管理Web应用的任务"
+    },
+    {
+      "title": "数据分析任务",
+      "description": "分析大型数据集并生成洞察报告",
+      "userInput": "分析这个大型销售数据集，生成包含图表和洞察的综合报告"
+    },
+    {
+      "title": "内容创作任务",
+      "description": "创建完整的用户入职指南",
+      "userInput": "为新用户创建完整的入职指南，包括快速开始、功能介绍和最佳实践"
+    }
+  ],
+  "documentation": {
+    "overview": "任务分解助手提供了一套完整的任务管理框架，能够智能分析任务复杂度、创建优化的子任务结构、协调并行执行、管理依赖关系，并最终合成高质量的结果。特别适用于需要多角度分析、多步骤处理或可以并行化的复杂任务。",
+    "quickStart": "直接描述您的复杂任务，系统会自动分析并创建最佳的分解方案。例如：'研究5个国家的可再生能源情况并生成对比报告' - 系统会自动创建5个并行研究子任务和1个合成子任务。",
+    "usageGuide": "支持自然语言指令，系统会自动识别任务类型（深度优先/广度优先/直接型）并采用相应的分解策略。可以通过添加特定要求来控制分解粒度、优先级和执行方式。",
+    "changelog": {
+      "1.0.0": [
+        "初始版本发布",
+        "支持智能任务分析和分解",
+        "支持并行执行和依赖管理",
+        "支持进度跟踪和结果合成",
+        "提供丰富的示例和模板"
+      ]
+    }
+  },
+  "license": "MIT",
+  "repository": "",
+  "homepage": ""
+}

@@ -1,160 +1,366 @@
 # Task Breakdown Template
 
-Copy this template to create your own task breakdown. Replace the placeholder text with your specific task details.
+Use this template to create structured task breakdowns for complex projects.
 
 ---
 
-## Task Breakdown for [YOUR TASK NAME]
+## Task Breakdown for [Task Name]
 
 ### Original Task Description
-[Brief restatement of what the user wants to accomplish. What is the main goal?]
+
+**What does the user want to accomplish?**
+
+[Brief restatement of the original task in your own words. Ensure you understand the core objectives and expected outcomes.]
+
+---
 
 ### Task Analysis
-- **Task Type**: [Depth-first / Breadth-first / Straightforward]
-- **Complexity Level**: [Low / Medium / High]
-- **Estimated Time**: [Your time estimate]
-- **Key Challenges**: [List main challenges this task presents]
+
+#### Task Type
+- [ ] Depth-First (multiple perspectives on same issue)
+- [ ] Breadth-First (distinct independent sub-questions)
+- [ ] Straightforward (sequential steps with dependencies)
+
+**Reasoning**:
+[Explain why you chose this task type]
+
+#### Complexity Assessment
+- [ ] Simple (can be done in < 15 minutes)
+- [ ] Medium (requires 15-60 minutes)
+- [ ] High (requires > 60 minutes or multiple hours)
+
+**Complexity Factors**:
+- Number of distinct components: ___
+- Number of dependencies: ___
+- Domain expertise required: [Low/Medium/High]
+- Data collection needs: [Minimal/Moderate/Extensive]
+
+#### Parallelization Potential
+- **Can subtasks run in parallel?**: Yes/No
+- **Estimated parallel subtasks**: ___
+- **Sequential bottlenecks**: [List any tasks that must be done sequentially]
+
+#### Resources Needed
+- Tools: [List tools/skills needed]
+- Files/Data: [List files or data sources]
+- Domain expertise: [What specialized knowledge is required?]
+
+---
 
 ### Decomposition Strategy
-[Explain your approach to breaking down this task. Why did you choose this decomposition method?]
+
+**Strategy Description**:
+[Describe your decomposition approach. Why is this strategy appropriate for this task?]
+
+**Execution Pattern**:
+- [ ] Sequential Chain (Task 1 → Task 2 → Task 3 → Task 4)
+- [ ] Parallel Execution (┌─ Task 1 ─┐├─ Task 2 ─┤ → Synthesis└─ Task 3 ─┘)
+- [ ] Fan-In (Task 1 ─┐Task 2 ─┼─→ SynthesisTask 3 ─┘)
+- [ ] Fan-Out (Task → Subtask 1 → Subtask 2 → Subtask 3)
+- [ ] Hybrid (combination of patterns)
+
+**Rationale for Pattern**:
+[Explain why this execution pattern is optimal]
 
 ---
 
-## Subtask List
+### Subtask List
 
-### Subtask 1: [SUBTASK TITLE]
-- **Objective**: [What this subtask accomplishes - specific, measurable goal]
-- **Description**: [Detailed description of the work required. What exactly needs to be done?]
-- **Dependencies**: None [or list: Depends on Subtask X]
-- **Expected Output**: [What deliverable will this subtask produce?]
-- **Priority**: [High / Medium / Low]
-- **Tools Required**: [List any specific tools or skills needed]
-- **Estimated Duration**: [Time estimate for this subtask]
+#### Subtask 1: [Title]
 
-### Subtask 2: [SUBTASK TITLE]
-- **Objective**: [What this subtask accomplishes]
-- **Description**: [Detailed description of the work required]
-- **Dependencies**: [None or list dependencies]
-- **Expected Output**: [What deliverable will this subtask produce?]
-- **Priority**: [High / Medium / Low]
-- **Tools Required**: [List any specific tools or skills needed]
-- **Estimated Duration**: [Time estimate for this subtask]
+**Objective**:
+[What does this subtask accomplish? How does it contribute to the overall goal?]
 
-### Subtask 3: [SUBTASK TITLE]
-- **Objective**: [What this subtask accomplishes]
-- **Description**: [Detailed description of the work required]
-- **Dependencies**: [None or list dependencies]
-- **Expected Output**: [What deliverable will this subtask produce?]
-- **Priority**: [High / Medium / Low]
-- **Tools Required**: [List any specific tools or skills needed]
-- **Estimated Duration**: [Time estimate for this subtask]
+**Description**:
+[Detailed description of the work involved. Include specific steps, methods, or approaches.]
 
-### Subtask 4: [SUBTASK TITLE]
-- **Objective**: [What this subtask accomplishes]
-- **Description**: [Detailed description of the work required]
-- **Dependencies**: [None or list dependencies]
-- **Expected Output**: [What deliverable will this subtask produce?]
-- **Priority**: [High / Medium / Low]
-- **Tools Required**: [List any specific tools or skills needed]
-- **Estimated Duration**: [Time estimate for this subtask]
+**Dependencies**:
+- [ ] None (can start immediately)
+- [ ] Depends on Subtask ___
+- [ ] Depends on external data/resource: ___
 
-[Add more subtasks as needed. Most tasks benefit from 3-7 subtasks total.]
+**Expected Output**:
+[What specific deliverable will this subtask produce? What format?]
+
+**Priority**:
+- [ ] High (critical to overall goal)
+- [ ] Medium (important but can be adjusted)
+- [ ] Low (nice-to-have or optional)
+
+**Estimated Complexity**:
+- [ ] Simple (< 15 minutes)
+- [ ] Medium (15-45 minutes)
+- [ ] High (> 45 minutes)
+
+**Success Criteria**:
+- [ ]
+- [ ]
+- [ ]
+[List at least 3 criteria that define successful completion]
+
+**Potential Risks/Blockers**:
+[List anything that might prevent successful completion]
 
 ---
 
-## Execution Plan
+#### Subtask 2: [Title]
 
-### Execution Strategy
-[Describe how you will execute these subtasks. Which will run in parallel? Which are sequential?]
+**Objective**:
+[What does this subtask accomplish?]
 
-### Phase 1: [PHASE NAME]
-- **Subtasks**: [List subtasks in this phase]
-- **Execution**: [Parallel / Sequential]
-- **Expected Duration**: [Time estimate]
+**Description**:
+[Detailed description]
 
-### Phase 2: [PHASE NAME]
-- **Subtasks**: [List subtasks in this phase]
-- **Execution**: [Parallel / Sequential]
-- **Expected Duration**: [Time estimate]
+**Dependencies**:
+- [ ] None
+- [ ] Depends on Subtask ___
 
-### Phase 3: [PHASE NAME]
-- **Subtasks**: [List subtasks in this phase]
-- **Execution**: [Parallel / Sequential]
-- **Expected Duration**: [Time estimate]
+**Expected Output**:
+[Deliverable description]
 
-### Total Estimated Time: [Overall time estimate]
+**Priority**:
+- [ ] High
+- [ ] Medium
+- [ ] Low
+
+**Estimated Complexity**:
+- [ ] Simple
+- [ ] Medium
+- [ ] High
+
+**Success Criteria**:
+- [ ]
+- [ ]
+- [ ]
+
+**Potential Risks/Blockers**:
+[...]
 
 ---
 
-## Progress Tracking
+#### Subtask 3: [Title]
 
-Use this section to track execution progress:
+[Repeat subtask template for all subtasks]
 
-| Subtask | Status | Notes |
-|---------|--------|-------|
-| Subtask 1: [Title] | ⏸️ Pending | [Notes on progress or blockers] |
-| Subtask 2: [Title] | ⏸️ Pending | [Notes on progress or blockers] |
-| Subtask 3: [Title] | ⏸️ Pending | [Notes on progress or blockers] |
-| Subtask 4: [Title] | ⏸️ Pending | [Notes on progress or blockers] |
+---
 
-**Status Legend:**
+#### Subtask N: [Title]
+
+[Continue as needed...]
+
+---
+
+### Execution Plan
+
+#### Phase 1: [Name]
+**Subtasks**: [List subtasks in this phase]
+**Execution**: [Parallel/Sequential]
+**Timeline**: [Estimated time]
+**Notes**: [Any special considerations]
+
+---
+
+#### Phase 2: [Name]
+**Subtasks**: [List subtasks]
+**Execution**: [Parallel/Sequential]
+**Timeline**: [Estimated time]
+**Notes**: [Any special considerations]
+
+---
+
+#### Phase 3: [Name]
+**Subtasks**: [List subtasks]
+**Execution**: [Parallel/Sequential]
+**Timeline**: [Estimated time]
+**Notes**: [Any special considerations]
+
+---
+
+### Total Estimated Timeline
+
+**Minimum Time**: ___ minutes/hours
+
+**Maximum Time**: ___ minutes/hours
+
+**Most Likely Time**: ___ minutes/hours
+
+---
+
+### Progress Tracking
+
+**Status Legend**:
 - ⏸️ Pending - Not yet started
-- ⏳ In Progress - Currently being executed
-- ✓ Completed - Successfully finished
-- ❌ Failed - Failed and needs retry
-- ⚠️ Blocked - Waiting on dependencies
+- 🔄 In Progress - Currently being worked on
+- ✅ Completed - Successfully finished
+- ⚠️ Blocked - Waiting on dependencies or issues
+- ❌ Failed - Unable to complete
+
+| Subtask | Status | Started | Completed | Notes |
+|---------|--------|---------|------------|-------|
+| Subtask 1 | ⏸️ | - | - | - |
+| Subtask 2 | ⏸️ | - | - | - |
+| Subtask 3 | ⏸️ | - | - | - |
+| Subtask N | ⏸️ | - | - | - |
 
 ---
 
-## Risk Assessment
+### Risk Assessment
 
-### Potential Issues
-1. [Risk 1]: [Description of potential problem and mitigation strategy]
-2. [Risk 2]: [Description of potential problem and mitigation strategy]
-3. [Risk 3]: [Description of potential problem and mitigation strategy]
-
-### Critical Path
-[Identify which subtasks are on the critical path - their delay would delay the entire project]
+| Risk ID | Risk Description | Probability | Impact | Mitigation Strategy |
+|---------|-----------------|--------------|--------|-------------------|
+| R1 | [Describe risk] | [Low/Medium/High] | [Low/Medium/High] | [How to address] |
+| R2 | [Describe risk] | [Low/Medium/High] | [Low/Medium/High] | [How to address] |
+| R3 | [Describe risk] | [Low/Medium/High] | [Low/Medium/High] | [How to address] |
 
 ---
 
-## Success Criteria
+### Success Criteria for Overall Task
 
-### Overall Success Criteria
-[List the criteria that indicate the entire task has been completed successfully]
-1. [Success criterion 1]
-2. [Success criterion 2]
-3. [Success criterion 3]
-
-### Subtask Success Criteria
-- **Subtask 1**: [Specific criteria to verify this subtask is complete]
-- **Subtask 2**: [Specific criteria to verify this subtask is complete]
-- **Subtask 3**: [Specific criteria to verify this subtask is complete]
-- **Subtask 4**: [Specific criteria to verify this subtask is complete]
+- [ ] All subtasks completed successfully
+- [ ] [Specific criterion 1]
+- [ ] [Specific criterion 2]
+- [ ] [Specific criterion 3]
+- [ ] [Specific criterion 4]
+- [ ] Quality meets or exceeds expectations
 
 ---
 
-## Synthesis Plan
+### Synthesis Plan
 
-### How Results Will Be Combined
-[Explain how you will integrate the outputs from all subtasks into the final deliverable]
+**How will subtask results be combined?**
 
-### Validation Steps
-1. [Step 1]: How you'll verify the synthesis is complete and accurate
-2. [Step 2]: Quality checks you'll perform
-3. [Step 3]: How you'll address any inconsistencies between subtask outputs
+[Describe the process for integrating all subtask outputs into a coherent final deliverable]
 
-### Final Deliverable Format
-[Describe what the final output will look like - report, code, dashboard, etc.]
+**Quality Assurance**:
+- [ ] Cross-validation between subtask results
+- [ ] Consistency check across all outputs
+- [ ] Resolution of any conflicts or discrepancies
+- [ ] Final review against original task objectives
+
+**Final Deliverable Structure**:
+[Describe what the final output will look like, its structure, and components]
 
 ---
 
-## Post-Execution
+### Communication Plan
 
-### Lessons Learned
-[After execution, note what went well and what could be improved]
+**Stakeholder Updates**:
+- Frequency: [How often will you provide updates?]
+- Format: [What format? (e.g., progress reports, demos)]
+- Key Milestones: [List major checkpoints]
 
-### Time to Complete: [Actual time taken]
+**Escalation Path**:
+- If [issue occurs], then [escalation action]
+- If [issue occurs], then [escalation action]
 
-### Notes for Future Similar Tasks
-[Any notes that would help with similar tasks in the future]
+---
+
+### Post-Completion Review
+
+**Lessons Learned**:
+[After completion, document what went well and what could be improved]
+
+**Best Practices Identified**:
+[List any best practices or patterns that emerged]
+
+**Improvements for Next Time**:
+[What would you do differently next time?]
+
+---
+
+## Template Usage Instructions
+
+### How to Use This Template
+
+1. **Fill in the Task Name**: Replace "[Task Name]" with a clear, descriptive title
+2. **Complete Original Task Description**: Rewrite the user's request in your own words to confirm understanding
+3. **Perform Task Analysis**: Answer all questions in the Task Analysis section
+4. **Define Decomposition Strategy**: Choose and justify your approach
+5. **Create Subtask List**: Use the subtask template for each subtask (copy as needed)
+6. **Plan Execution**: Define phases and timeline
+7. **Track Progress**: Update the progress tracking table as you work
+8. **Assess Risks**: Identify potential issues and mitigation strategies
+9. **Define Success Criteria**: Establish clear success metrics
+10. **Plan Synthesis**: Describe how results will be combined
+11. **Review and Adjust**: Update the template as the project progresses
+
+### Customization Tips
+
+- **Add/Remove Sections**: Feel free to add sections specific to your task or remove irrelevant ones
+- **Subtask Granularity**: Adjust subtask size based on task complexity - aim for subtasks that are independent and manageable
+- **Timeline Estimates**: Be realistic with time estimates; it's better to overestimate than underestimate
+- **Success Criteria**: Make success criteria specific, measurable, and achievable
+- **Risk Management**: Consider both technical and project risks (e.g., unclear requirements, resource constraints)
+
+### Best Practices
+
+✅ **DO**:
+- Be as specific as possible in descriptions
+- Set clear success criteria for each subtask
+- Consider dependencies carefully
+- Plan for contingencies
+- Update progress tracking regularly
+- Learn from each breakdown to improve future planning
+
+❌ **DON'T**:
+- Leave sections blank (fill everything or mark as N/A)
+- Create vague or ambiguous descriptions
+- Ignore dependencies between subtasks
+- Underestimate time and complexity
+- Forget to track progress
+- Skip the post-completion review
+
+---
+
+## Example Usage
+
+Here's a brief example of how to fill in key sections:
+
+### Original Task Description
+
+**User Request**: "Research AI adoption trends in healthcare and create a report"
+
+**Restatement**: Research current state of AI technology adoption in the healthcare industry, identifying key applications, benefits, challenges, and adoption rates across different medical specialties and geographic regions. Deliver a comprehensive report with findings, trends, and recommendations.
+
+### Task Analysis
+
+**Task Type**: Depth-First (analyzing AI in healthcare from multiple perspectives: clinical, regulatory, economic, technological)
+
+**Complexity**: High (requires data collection from multiple domains, analysis of complex interactions)
+
+**Parallelization Potential**: High - can research different aspects simultaneously
+
+### Decomposition Strategy
+
+**Strategy**: Depth-first approach with parallel research subtasks
+Create 4 parallel research subtasks:
+1. Clinical applications and outcomes
+2. Regulatory landscape and compliance
+3. Economic impact and ROI
+4. Technical implementation challenges
+
+Followed by 1 synthesis subtask to combine findings.
+
+### Subtask 1: Clinical Applications Research
+
+**Objective**: Identify and analyze AI applications in clinical settings
+
+**Description**: Research AI applications in diagnostics, treatment planning, drug discovery, personalized medicine, and patient monitoring. Collect data on efficacy rates, success stories, and patient outcomes.
+
+**Dependencies**: None
+
+**Expected Output**: Comprehensive analysis of clinical AI applications with case studies and outcome data
+
+**Priority**: High
+
+**Estimated Complexity**: Medium (45-60 minutes)
+
+---
+
+## Additional Resources
+
+For more examples of completed task breakdowns, see:
+- `/examples/task-breaker-examples.md`
+
+For detailed methodology and best practices, see:
+- `/skills/task-breaker/SKILL.md`
