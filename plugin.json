@@ -111,6 +111,7 @@
     }
   },
   "license": "MIT",
-  "repository": "",
-  "homepage": ""
+  "repository": "https://github.com/TIX007/task-breaker",
+  "homepage": "https://github.com/TIX007/task-breaker#readme",
+  "bugs": "https://github.com/TIX007/task-breaker/issues"
 }
